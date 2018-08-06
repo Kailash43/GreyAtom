@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.MuiGrid-item-43, .MuiGrid-item-43 ul li{
+  text-align: center;
+}
+
+input{
+  width: 98%;
+  height: 20px;
+  padding: 10px;
+}
+
+.form-group{
+  margin: 10px;
+  text-align: center;
+}
+
+.table-container .MuiGrid-container-42{
+  width: 100%;
+  padding: 15px 0;
+  margin: 0;
+}
+
+.MuiGrid-spacing-xs-16-65 > .MuiGrid-item-43:last-of-type{
+  border-right: 0;
+}
+
+.MuiGrid-spacing-xs-16-65 > .MuiGrid-item-43{
+  border: 1px solid;
+  padding: 0 !important;
+  border-left: 0;
+}
+
+.table-container h4{
+  background: #e8e8e8;
+  height: auto;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.table-container div ul li, .table-container h4{
+  border-bottom: 1px solid;
+}
+
+.table-container div ul li:last-child{
+  border-bottom: 0;
+}
+
+.MuiList-padding-140{
+  text-transform: capitalize;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
