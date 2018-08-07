@@ -72,6 +72,38 @@ input{
   text-transform: capitalize;
 }
 
+#modal-state p{
+  text-align: center;
+  color: #4caf50;
+}
+
+#save-button:hover{
+  color: #4caf50;
+}
+
+#close-button:hover{
+  color: red;
+  cursor: pointer;
+}
+
+a{
+  color: #ffffff
+}
+
+table tr td:nth-last-child(2) {
+  text-transform: capitalize;
+}
+
+#date_label{
+  text-align: left;
+  margin: 8px;
+}
+
+#form_container{
+  padding: 20px 0px;
+    border-bottom: 1px dotted;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
