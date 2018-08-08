@@ -90,8 +90,16 @@ a{
   color: #ffffff
 }
 
+table a{
+  color: #000000
+}
+
 table tr td:nth-last-child(2) {
   text-transform: capitalize;
+}
+
+table td, #table_head tr th{
+  text-align: center;
 }
 
 #date_label{
@@ -99,9 +107,32 @@ table tr td:nth-last-child(2) {
   margin: 8px;
 }
 
+#date_picker{
+  text-align: left;
+  margin-left: 8px;
+}
+
 #form_container{
   padding: 20px 0px;
     border-bottom: 1px dotted;
+}
+
+.react-date-picker__calendar{
+  width: 275px !important;
+}
+
+#table-button{
+  padding-right: 0;
+  display: flex;
+}
+
+#modal_conatiner{
+  width: 300px;
+}
+
+.search-bar{
+  margin-top: 10px;
+  width: 94%;
 }
 
 @keyframes App-logo-spin {
