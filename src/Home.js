@@ -118,7 +118,6 @@ class InteractiveList extends React.Component {
     };
 
   componentWillMount = function(){
-      console.log(localStorage.getItem('data'));
     if(localStorage.getItem('data') == null) {
         this.serverRequest = fetch("https://api.myjson.com/bins/pkisp")
         .then(res => res.json())
@@ -181,7 +180,7 @@ class InteractiveList extends React.Component {
 
     var parseDate = Date.parse(dateOfBirth);
     var birthDate = new Date(parseDate);
-    console.log(birthDate, dateOfBirth);
+   // console.log(birthDate, dateOfBirth);
     var d = Date.parse(month + '/' + date + '/' + year );
     var t = new Date(d);
     var age = today.getFullYear() - t.getFullYear();
@@ -213,58 +212,59 @@ class InteractiveList extends React.Component {
   }
 
   changeDate = function(evt, index){
-    console.log(evt)
+    //console.log(evt)
     this.state.items[index].dob = evt;
     this.setState({items: this.state.items});
     var d = new Date(evt);
     this.state.results.dob = d;
-    console.log(this.state.results);
+    //console.log(this.state.results);
   }
 
   updateInputValue = function(evt, index) {    
   const characterRegex = new RegExp('^[A-Za-z]+$');
   const numberRegex = new RegExp('^[0-9]+$')
   const emailRegex = new RegExp('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$;/');
-
-    switch(evt.target.name){
-      case 'first_name':
-        this.state.items[index].first_name = evt.target.value;
-        if(!characterRegex.test(evt.target.value)){
-          this.setState({first_name: true});
-        }
-        else {
-          this.setState({first_name: false});
-        }
-        break;
-      case 'last_name':
-        this.state.items[index].last_name = evt.target.value;
-        if(!characterRegex.test(evt.target.value)){
-          this.setState({last_name: true});
-        }
-        else {
-          this.setState({last_name: false});
-        }
-        break;
-      case 'email':
-        this.state.items[index].email = evt.target.value;
-        console.log(emailRegex.test(evt.target.value));
-        if(!emailRegex.test(evt.target.value)){
-          this.setState({email: false});
-        }
-        break;
-      case 'phone':
-        this.state.items[index].phone = evt.target.value;
-        if(!numberRegex.test(evt.target.value)){
-          this.setState({phone: true});
-        }
-        else {
-          this.setState({phone: false});
-        }
-        break;
-      default:
-        break;
+  //console.log(evt.target.value);
+    if(evt.target.value != ''){
+      switch(evt.target.name){
+        case 'first_name':
+          this.state.items[index].first_name = evt.target.value;
+          if(!characterRegex.test(evt.target.value)){
+            this.setState({first_name: true});
+          }
+          else {
+            this.setState({first_name: false});
+          }
+          break;
+        case 'last_name':
+          this.state.items[index].last_name = evt.target.value;
+          if(!characterRegex.test(evt.target.value)){
+            this.setState({last_name: true});
+          }
+          else {
+            this.setState({last_name: false});
+          }
+          break;
+        case 'email':
+          this.state.items[index].email = evt.target.value;
+          if(!emailRegex.test(evt.target.value)){
+            this.setState({email: false});
+          }
+          break;
+        case 'phone':
+          this.state.items[index].phone = evt.target.value;
+          if(!numberRegex.test(evt.target.value)){
+            this.setState({phone: true});
+          }
+          else {
+            this.setState({phone: false});
+          }
+          break;
+        default:
+          break;
+      }
+      this.state.temperoryObject = [];
     }
-    this.state.temperoryObject = [];
   }
 
   saveDetails = function(){
@@ -391,7 +391,7 @@ class InteractiveList extends React.Component {
                             <Grid container spacing={24}>
                               <Grid item xs={12}>
                               <FormControl id="form_container" fullWidth className={classes.margin}>
-                                    <Input error={this.state.first_name} 
+                                    <Input type="text" error={this.state.first_name}
                                       placeholder="First Name"
                                       className={classes.input}
                                       inputProps={{
@@ -402,7 +402,7 @@ class InteractiveList extends React.Component {
                                       value={this.state.results.first_name}
                                     /><br/>
                                   
-                                  <Input error={this.state.last_name}
+                                  <Input type="text" error={this.state.last_name}
                                       placeholder="Last Name"
                                       className={classes.input}
                                       inputProps={{
@@ -413,7 +413,7 @@ class InteractiveList extends React.Component {
                                       value={this.state.results.last_name}
                                     /><br/>
                                     
-                                  <Input error={this.state.email}
+                                  <Input type="email" error={this.state.email}
                                       placeholder="Email"
                                       className={classes.input}
                                       inputProps={{
@@ -424,7 +424,7 @@ class InteractiveList extends React.Component {
                                       value={this.state.results.email}
                                     /><br/>
                                   
-                                  <Input error={this.state.phone}
+                                  <Input type="number" error={this.state.phone}
                                       placeholder="Mobile"
                                       className={classes.input}
                                       inputProps={{
